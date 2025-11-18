@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        align-items: center => 2등분으로 분할 시켰을 때 그 안에서 센터를 잡겠다
+        align-items: baseline => 교차축의 문자선에 맞춰 배치
+        align-items: stretch => 플랙스 항목을늘려 세로를 다 채움
+
+        align-content: flex-start => 교차축의 시작점에 맞춰 배치
+        align-content: flex-end => 교착춤 끝점에 맞춰 배치
+        
+        
+        */
+        .p-box {
+            display: flex;  /* div의 도형이 옆으로 정렬 될 수 있도록 설정 */
+            /* 너무 많이 삽입하여 2분할을 넘어 서는 순간 자동 3분할로 설정됨 */
+            flex-flow: row wrap;  /* 하위 컨텐츠를 정확히 둘로 나눠 가로 축이 다 차면 아래로 자동 줄 바꿈 */
+            justify-content: center;   /* 도형 간격 일정하게 늘려줌 */
+            align-items: center;
+            box-sizing: border-box;   
+            border: 1px solid #dbdbdb;  /* border 1px에 실선으로 dbdbdb색으로 삽입 */
+            padding: 10px;
+            width: 550px;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .c-box {
+            flex-shrink: 0;
+            box-sizing: border-box;
+            border: 1px solid #dbdbdb;
+            width: 100px;
+            height: 100px;
+        }
+
+        .p-box2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 1px solid #dbdbdb;
+            width: 500px;
+            height: 300px;
+        }
+
+        .c-box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div>
+        <div class="p-box2">
+            <div class="c-box2"></div>
+        </div>
+        
+    </div>
+
+    <div class="p-box">
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+        <div class="c-box"></div>
+    </div>
+
+    
+    
+</body>
+</html>
