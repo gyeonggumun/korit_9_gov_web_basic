@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+            /* position: static으로 모든 스타일이 가지고 있음 */
+            div {
+                box-sizing: border-box;
+                border:1px solid #222;
+            }
+
+            .p-box {
+                position: static;
+                padding: 20px;
+                width: 400px;
+                height: 400px;
+            } 
+
+            .p2-box {
+                position: absolute;
+                padding: 20px;
+                width: 360px;
+                height: 180px;
+                border-color: red;
+            } 
+
+            .box1 {
+                width: 50px;
+                height: 50px;
+                border-color: blue;
+            } 
+
+            .box2 { 
+                position: absolute;  /* static으로 고정되어 움직이 못하는 문제를 relative로 해결  absolute는 자유로운 이동이 가능*/
+                left: 0;
+                width: 50px;
+                height: 50px;
+                border-color: green;
+            } 
+
+            .box3 { 
+                position: static;  /* static으로 고정되어 움직이 못하는 문제를 relative로 해결 */
+                top: 50px;
+                left: 100px;
+                width: 50px;
+                height: 50px;
+                border-color: rebeccapurple;
+            } 
+
+        </style>    
+</head>
+<body>
+    <div class="p-box">
+        <div class="p2-box">
+
+        </div>
+        <div class="p2-box">
+            <div class="box1">
+
+            </div>
+            <div class="box2">
+
+            </div>
+            <div class="box3">
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
