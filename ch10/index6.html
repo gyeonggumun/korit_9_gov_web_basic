@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-group {
+            display: flex;
+
+            & > .btn:not(& > .btn:nth-of-type(1)) {
+                margin-left: -1px;
+            }
+
+            & > .btn:not(& > .btn:nth-of-type(1)):not(& > .btn:nth-last-of-type(1)) {
+                border-radius: 0;
+            }
+
+            & > .btn:nth-of-type(1) {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            & > .btn:nth-last-of-type(1) {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        .btn {
+            position: relative;
+            display: inline-block;
+            border: 1px solid #a0cfff;
+            border-radius: 6px;
+            padding: 5px 15px;
+            background-color: #fff;
+            font-weight: 600;
+            color: #4e86bd;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            border: 1px solid #1976d2;
+            background-color: #1976d209;
+            z-index: 1;
+        }
+        
+        .btn::after {
+            border: 1px solid #1976d209;
+            background-color: #1976d2;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn-group">
+        <div class="btn">Button1</div>
+        <div class="btn">Button2</div>
+        <div class="btn">Button3</div>
+        <div class="btn">Button4</div>
+        <div class="btn">Button5</div>
+        <div class="btn">Button6</div>
+    </div>
+</body>
+</html>
