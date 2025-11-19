@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .btn {
+            box-sizing: border-box;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            padding: 5px 10px;
+            background-color: #fff;
+        }
+
+        .btn:hover{ /* 마우스가 올라갔을 때 스타일 덮어씌우기 */
+            background-color: #fafafa;
+        }
+
+        .btn:active{ /* 클릭하고 있는 동안 스타일 덮어씌우기 */
+            background-color: #eee;
+        }
+
+        .btn:focus{ /* 텝이 되어 포커스 되었을 때 스타일 덮어씌우기 */
+            outline: none;
+            border: 2px solid red;
+        }
+
+        .text-input {
+            box-sizing: border-box;
+            outline: none;  /* none해주지 않으면 border를 덮어 씌움 */ 
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            padding: 3px 5px;
+            cursor: pointer;
+        }
+
+        .text-input:active {
+            background-color: #fafafa;
+        }
+
+        /* disabled를 해주면 커서를 올릴 때 비화성화 되도록 설정 */
+        .text-input:disabled ~ .btn { /* text-input과 형제관계인 btn에 모두 비화성화 */
+            background-color: #eee;
+            color: #999999;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" class="text-input" value="테스트 텍스트" disabled>
+    <button class="btn">버튼</button>
+    <button class="btn">버튼</button>
+    <button class="btn">버튼</button>
+    <button class="btn">버튼</button>
+</body>
+</html>
