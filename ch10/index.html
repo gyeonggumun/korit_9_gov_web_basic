@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 타입 선택자 */
+        .btn {
+            box-sizing: border-box;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            padding: 5px 10px;
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+
+        .btn--primary {
+            background-color: #00aaff;
+            color: #fafafa;
+        }
+        .btn--error {
+            background-color: #da0000;
+            color: #fafafa;
+        }
+
+        .btn[class~=btn--disabled] { /* btn중 클래스 이름에 btn--disabled이 포함되어 있을 때 적용 */
+            background-color: #c6c6c6;
+            color: #fafafa;
+            cursor: default;
+        }
+        /*
+        $ => 종료 위치 의미
+        ^ => 시작 위치 의미
+        */
+
+        /* 속성 선택자 */
+        .btn[value $= ".hwp"] { 
+            background-color: #40afff;
+            color: #fff;
+        }
+
+        .btn[value $= ".xlsx"] {
+            background-color: #1d6b40;
+            color: #fff;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div>
+        <button class="btn">기본버튼</button>
+        <button class="btn btn--primary">강조버튼</button>
+        <button class="btn btn--error btn--disabled">오류버튼</button>
+        <button class="btn btn--disabled">비활성버튼</button>
+
+        <button class="btn" value="test.hwp">한글문서 다운로드</button>
+        <button class="btn" value="test.xlsx">엑셀문서 다운로드</button>
+    </div>
+</body>
+</html>
