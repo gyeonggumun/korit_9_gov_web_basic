@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        /* 인접 현제 선택자 */
+        input[type=checkbox] + label{ /* label에 스타일을 부여할 수 없음으로 인접 형제 선택자를 사용하여 input본인 바로 밑에있는 label스타일부여*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 1px solid #dbdbdb;
+            border-radius: 10px;
+            padding: 3px;
+            width: 45px;
+            height: 45px;
+        }
+
+        input[type=checkbox]:checked + label::after { /* 체크되었을 때의 label스타일을 덮어씌워라 */
+            /*content: "✔️";*/
+            content: "";
+            display: block;
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            background-color: #1d6b40;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <input type="checkbox" id="chk1">
+    <label for="chk1"></label> <!-- 텍스트를 입력해도 checkbox가 클릭되도록-->
+
+    <input type="checkbox" id="chk2">
+    <label for="chk2"></label> 
+</body>
+</html>
