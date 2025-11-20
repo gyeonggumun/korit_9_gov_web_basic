@@ -13,21 +13,74 @@
             display: flex;
             flex-direction: column;
             margin: 0;
-            height: 100%;
-            
+            height: 100%;   
         }
+
+        .btn-group {
+            display: flex;
+            width: fit-content;
+
+            & > .btn:nth-of-type(1) {
+                border-radius: 4px 0 0 4px;    
+            }
+            & > .btn:nth-last-of-type(1) {
+                border-radius: 0 4px 4px 0;    
+            }
+
+        }
+
+        .btn {
+            border: none;
+            border-radius: 4px;
+            padding: 5px 15px;
+            background-color: #fff;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #fafafa;
+            }
+
+            &:active {
+                background-color: #eeeeee;
+            }
+        }
+
+        .btn-mustard {
+            background-color: #ffb404;
+            &:hover {
+                background-color: #ffc404;
+            }
+            &:active {
+                background-color: #ffa200;
+            }
+        }
+
+        .btn-error {
+            background-color: #dc3545;
+            color: #fff;
+            &:hover {
+                background-color: #cc3545;
+            }
+            &:active {
+                background-color: #ac3545;
+            }
+        }
+
+        
 
         header {
             display:flex;
             align-items: center;
+            box-sizing: border-box;
             padding-left: 10px;
             height: 50px;
-            background-color: #35b6b0;
+            background-color: #a4a4a4;
 
             .main-title {
                 margin: 0;
                 font-size: 15px;
                 color: #fff;
+                cursor:default;
             }
         }
 
@@ -38,15 +91,93 @@
         }
 
         aside {
+            min-width: 200px;
             width: 200px;
             height: 100%;
             background-color: gray;
+
+            .aside-top {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                padding: 20px 0;
+                background-color: #2f2f2f;
+
+                .aside-student-name {
+                    margin: 0;
+                    font-size: 17px;
+                    color: #fff;
+                    cursor: default;
+                }
+            }
+
+            .aside-menu-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0.1px 0;
+                background-color: #2f2f2f;
+
+                & > a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+                .aside-menu-item {
+                    display: flex;
+                    align-items: center;
+                    margin: 1px 0;
+                    padding: 15px;
+                    background-color: #808080;
+                    
+                    &:hover {
+                        background-color: #5f5f5f;
+                    }
+
+                    &:active {
+                        background-color: #2f2f2f;
+                    }
+
+                    & > div:nth-of-type(1) {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 25px;
+                    }
+
+                    & > div:nth-of-type(2) {
+                        padding-left: 5px;
+                    }
+                }
+            }
         }
 
         article {
+            display: flex;
+            flex-direction: column;
             flex-grow: 1;
+            box-sizing: border-box;
+            padding: 8px;
+            min-width: 1000px;
             background-color: yellow;
+        
+        
+            .main-top {
+                margin-bottom: 10px;
+                height: 180px;
+                background-color: red;
+            
+            }
+
+            .main-body {
+                flex-grow: 1;
+                background-color: red;
+            }
         }
+            
+        
+        
 
         
 
@@ -57,8 +188,60 @@
         <h1 class="main-title">코리아IT아카데이미부산</h1>
     </header>
     <main>
-        <aside></aside>
-        <article></article>
+        <aside>
+            <div class="aside-top">
+                <h2 class="aside-student-name">문경구</h2>
+                <div class="btn-group">
+                    <button class="btn btn-mustard">정보수정</button>   
+                    <button class="btn btn-error">비밀번호변경</button>
+                </div>
+            </div>
+            <ul class="aside-menu-list">
+                <a href=""><li class="aside-menu-item">
+                    <div>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="18px" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M552 64H112c-20.858 0-38.643 13.377-45.248 32H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h496c13.255 0 24-10.745 24-24V88c0-13.255-10.745-24-24-24zM48 392V144h16v248c0 4.411-3.589 8-8 8s-8-3.589-8-8zm480 8H111.422c.374-2.614.578-5.283.578-8V112h416v288zM172 280h136c6.627 0 12-5.373 12-12v-96c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v96c0 6.627 5.373 12 12 12zm28-80h80v40h-80v-40zm-40 140v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zm192 0v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0-144v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0 72v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12z"></path></svg>
+                    </div>
+                    <div>훈련과정</div>
+                </li></a>
+                <a href=""><li class="aside-menu-item">
+                    <div>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="18px" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M552 64H112c-20.858 0-38.643 13.377-45.248 32H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h496c13.255 0 24-10.745 24-24V88c0-13.255-10.745-24-24-24zM48 392V144h16v248c0 4.411-3.589 8-8 8s-8-3.589-8-8zm480 8H111.422c.374-2.614.578-5.283.578-8V112h416v288zM172 280h136c6.627 0 12-5.373 12-12v-96c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v96c0 6.627 5.373 12 12 12zm28-80h80v40h-80v-40zm-40 140v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zm192 0v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0-144v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0 72v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12z"></path></svg>
+                    </div>
+                    <div>공지사항</div>
+                </li></a>
+                <a href=""><li class="aside-menu-item">
+                    <div>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="18px" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M552 64H112c-20.858 0-38.643 13.377-45.248 32H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h496c13.255 0 24-10.745 24-24V88c0-13.255-10.745-24-24-24zM48 392V144h16v248c0 4.411-3.589 8-8 8s-8-3.589-8-8zm480 8H111.422c.374-2.614.578-5.283.578-8V112h416v288zM172 280h136c6.627 0 12-5.373 12-12v-96c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v96c0 6.627 5.373 12 12 12zm28-80h80v40h-80v-40zm-40 140v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zm192 0v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0-144v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0 72v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12z"></path></svg>
+                    </div>
+                    <div>건의함</div>
+                </li></a>
+                <a href=""><li class="aside-menu-item">
+                    <div>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="18px" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M552 64H112c-20.858 0-38.643 13.377-45.248 32H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h496c13.255 0 24-10.745 24-24V88c0-13.255-10.745-24-24-24zM48 392V144h16v248c0 4.411-3.589 8-8 8s-8-3.589-8-8zm480 8H111.422c.374-2.614.578-5.283.578-8V112h416v288zM172 280h136c6.627 0 12-5.373 12-12v-96c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v96c0 6.627 5.373 12 12 12zm28-80h80v40h-80v-40zm-40 140v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zm192 0v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0-144v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0 72v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12z"></path></svg>
+                    </div>
+                    <div>채용정보</div>
+                </li></a>
+                <a href=""><li class="aside-menu-item">
+                    <div>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="18px" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M552 64H112c-20.858 0-38.643 13.377-45.248 32H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h496c13.255 0 24-10.745 24-24V88c0-13.255-10.745-24-24-24zM48 392V144h16v248c0 4.411-3.589 8-8 8s-8-3.589-8-8zm480 8H111.422c.374-2.614.578-5.283.578-8V112h416v288zM172 280h136c6.627 0 12-5.373 12-12v-96c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v96c0 6.627 5.373 12 12 12zm28-80h80v40h-80v-40zm-40 140v-24c0-6.627 5.373-12 12-12h136c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zm192 0v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0-144v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12zm0 72v-24c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H364c-6.627 0-12-5.373-12-12z"></path></svg>
+                    </div>
+                    <div>로그아웃</div>
+                </li></a>
+                
+            </ul>
+        </aside>
+        <article>
+            <div class="main-top">
+                <div class="course-info-container">
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-body"></div>
+        </article>
+            
     </main>
 </body>
 </html>
