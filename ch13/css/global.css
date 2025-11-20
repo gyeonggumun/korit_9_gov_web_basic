@@ -1,11 +1,12 @@
 html {
             height: 100vh;
+            background-color: #fafafa;
         }
 
         body {
             display: flex;
             flex-direction: column;
-            margin: 0;
+            margin: 0 10px;
             height: 100%;   
         }
 
