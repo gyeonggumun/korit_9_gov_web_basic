@@ -58,3 +58,14 @@ html {
                 background-color: #ac3545;
             }
         }
+
+        .btn-black {
+            background-color: #444;
+            color: #fff;
+            &:hover {
+                background-color: #333;
+            }
+            &:active {
+                background-color: #111;
+            }
+        }
