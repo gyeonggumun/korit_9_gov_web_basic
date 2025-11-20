@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100vh;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            height: 100%;
+            
+        }
+
+        header {
+            display:flex;
+            align-items: center;
+            padding-left: 10px;
+            height: 50px;
+            background-color: #35b6b0;
+
+            .main-title {
+                margin: 0;
+                font-size: 15px;
+                color: #fff;
+            }
+        }
+
+        main {
+            display: flex;
+            flex-grow: 1;  /* flex영역에서 남은 여백을 꽉 채우는 행위 */
+            background-color: blue;
+        }
+
+        aside {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+
+        article {
+            flex-grow: 1;
+            background-color: yellow;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="main-title">코리아IT아카데이미부산</h1>
+    </header>
+    <main>
+        <aside></aside>
+        <article></article>
+    </main>
+</body>
+</html>
