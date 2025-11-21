@@ -19,8 +19,19 @@
             fieldName: "username",
             errorMessage: "사용자이름을 확인하세요.",
         }
-
+        // []를 사용하면 키 값을 변수처럼 사용가능
         console.log(error.errorMessage + `(${user[error.fieldName]})`);
+
+        const student = {
+            name: "김준일",
+            age: 32,
+        }
+
+       // []를 사용하여 문자열을 참조형으로 사용가능 
+        console.log(student.name);
+        console.log(student.age);
+        console.log(student["name"]);
+        console.log(student["age"]);
 
 
 
