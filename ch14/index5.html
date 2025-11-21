@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 익명 함수
+        const fx1 = function a() {};
+        fx1();
+        const fx2 = function () {};
+        fx2();
+
+        function fx3(c) {
+            c();
+        }
+
+        fx3(function b() {});
+        fx3(function () {});
+
+        fx3 (() => {});
+
+        const fx4 = () => {};
+
+        function main() {
+            const add = (a, b) => {
+                return a + b;
+            }
+
+            console.log(add(10, 20));
+        }
+        // 비동기 동작이기 대문에 시간을 0초로 설정을 해도 후순위로 밀리고
+        // 동기적 동작을 먼저 수행함
+        setTimeout(() => {
+            console.log("3초 뒤에 출력");
+        }, 3000);
+
+        console.log("3초 뒤에 출력???????");
+
+
+    </script>
+    
+</body>
+</html>
