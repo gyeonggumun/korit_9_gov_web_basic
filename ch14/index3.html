@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function fx1() {
+            console.log("함수1 호출");
+        }
+
+        function fx1() {
+            console.log("함수1 호출!!!");
+        }
+
+        fx1();
+
+        const fx2 = fx1();
+        let fx3 = fx2;
+        console.log(typeof fx1);
+
+        function fx4() {
+            return function fx5() {
+                console.log("함수5 호출!!!")
+            }
+        }
+
+        let fx6 = fx4();
+        let fx7 = fx4();
+
+        let fx8 = fx4;
+        let fx9 = fx4;
+        
+        console.log(fx6 === fx7);   // false
+        console.log(fx8 === fx9);   // true
+
+
+    </script>
+</body>
+</html>
