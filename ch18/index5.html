@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 구조분해 (비구조 할당) - 배열
+        const arr = [1,2,3,4,5];
+        const num1 = arr[0];
+        const num2 = arr[1];
+        const num3 = arr[2];
+        const num4 = arr[3];
+        const num5 = arr[4];
+
+        const [n1, n2, n3, n4, n5] = arr;
+        
+        function getDate() {
+            const student = {
+                name: "김준일",
+                age: 32,
+            }
+            const serverPort = 8080;
+            const status = 200;
+
+            return [ student, serverPort, status ];
+        }
+
+        const [ s, sp, st ] = getDate();
+        console.log(getDate());
+
+        function useState(initValue) {
+            let v = initValue;
+
+            const setter = (value) => {
+                v = value;
+            }
+
+            const getter = () => {
+                return v;
+            }
+
+            return [v , setter, getter];
+        }
+
+        const [username, setUsername, getUsername] = useState("김준이");
+        console.log(username);
+        console.log(getUsername());
+        setUsername("김준일");
+        console.log(username);
+        console.log(getUsername());
+    </script>
+    
+</body>
+</html>
