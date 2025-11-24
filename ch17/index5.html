@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //여러 개의 Promise - 배열로 받음
+      //
+      Promise.all([
+        new Promise((rs) => rs(10)), //10 리턴하는 promise
+        new Promise((rs) => rs(20)),
+        new Promise((rs) => rs(30)),
+        new Promise((rs) => rs(40)),
+      ]).then((values) => {
+        console.log(values);
+      });
+
+      //=====================================================================
+      //promise all 은 순서보장
+      console.log("==========================");
+      Promise.all([
+        new Promise((rs) => {
+          console.log(1);
+          rs(100);
+        }),
+        new Promise((rs) => {
+          console.log(2);
+          setTimeout(() => rs(200), 3000);
+        }),
+        new Promise((rs) => {
+          console.log(3);
+          rs(300);
+        }),
+      ]).then((values) => {
+        console.log(values);
+      });
+      //모든 promise 가 동작해야 then 실행하겠단 의미
+      //젤 늦게 오는 녀석까지 기다려야함 -> 동기처리와 비슷하다 볼 수 있음
+
+      //===============================================================
+      //reject 라면 -> 1 2 3 100
+      Promise.all([
+        new Promise((rs) => {
+          console.log(1);
+          rj(100);
+        }),
+        new Promise((rs) => {
+          console.log(2);
+          setTimeout(() => rj(200), 3000);
+        }),
+        new Promise((rs) => {
+          console.log(3);
+          rs(300);
+        }),
+      ])
+        .then((values) => {
+          console.log(values);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

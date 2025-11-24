@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      new Promise((rs, rj) => {
+        console.log(1);
+        rs(10); //resolve 되었으므로
+        rj(10); //reject 무시됨
+        console.log("오류생성");
+      })
+        .catch((v) => {
+          //catch 가 먼저 왔지만 현재 resolve 상태이므로 실행안됨 => 2번쨰 promise 로 넘김
+          console.log(v);
+        })
+        .then((v) => {
+          //여기서 then 은 catch 에서 리턴한 객체의 리턴값에 then 을 거는 것
+          //catch가 return한 값을 받음
+          //.then()은 원래 Promise의 resolve 값과 직접 연결되지 않음
+          // => 1번쨰 Promise 의 resolve 와 연결된 것이 아님을 주의
+          console.log("resolve 호출");
+          console.log(v);
+        });
+
+      //promise 안에서 reject 호출되면 바로 예외처리 - 그다음 코드 실행막음
+      //큐에 들어가는 건 먼저 호출되는 녀석이 먼저 들어감
+
+      //catch 가 먼저 왔는데 resolve 가 먼저 실행되므로 catch 가 처리할 수 있는 범위가 아니라서 넘김 ->
+      //2번째 Promise 의then 으로 넘어감
+
+      //=> 즉 1번 promise 의 catch = 2번 promise 의 then 같은 레벨?
+      //Promise1 ---resolve---> (catch)-실행안됨 ---Promise2 의 resolve---> then
+
+      new Promise((rs, rj) => {
+        console.log(1);
+        rj(10);
+        rs(10); //이미 reject 가 호출되었으므로 resolve 무시됨
+        console.log("오류생성");
+      })
+        .catch((v) => {
+          //오류가 나면 리턴값(10000)으로 대체한다는 것
+          console.log("reject 호출");
+          console.log(v);
+          return 10000; //catch 지만 리턴은 promise 즉 resolve 라고 볼 수 있음
+        })
+        .then((v) => {
+          console.log("resolve 호출"); //여기서 v: catch 에서 리턴해주는 값
+          console.log(v);
+        });
+
+      //then 은 무조건 동작하는데 resolve 먼저면 -> 바로 then / reject 먼저면 catch 타고 then -> 이때 then 이 받는 건 catch 에서 리턴한 값을 받음
+
+      //비교
+      new Promise((rs, rj) => {
+        console.log(1);
+        rs(10);
+        rj(10);
+        console.log("오류생성");
+      })
+        .then((v) => {
+          console.log("resolve 호출");
+          console.log(v); //v = 10
+          throw new Error(100000); //에러발생시킴 -> catch 로 갈 수 있음
+          return 100000; //100000 리턴하고 끝 -> catch 로 가려면??? => throw 에러 => but 이러면 catch 걸리므로 이 코드는 실행 X
+        })
+        .catch((e) => {
+          console.log("reject 호출");
+          console.log(e.message); //v = Error(100000)
+          return 10000;
+        });
+
+      new Promise((rs, rj) => {
+        console.log(2);
+        rs(20);
+      }).then((v) => {
+        console.log(v);
+      });
+
+      new Promise((rs, rj) => {
+        console.log(3);
+        rj(30);
+      }).catch((v) => {
+        console.log(v);
+      });
+
+      // 1 2 3 / 10 20 30
+      //catch 든 then 이든 먼저 등록된 순서대로 동작함
+    </script>
+  </body>
+</html>
