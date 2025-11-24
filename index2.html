@@ -11,10 +11,47 @@
         * promise
         */
         const executor = (resolve, reject) => {
-
+            console.log(1);
+            console.log(2);
+            setTimeout(() => resolve(), 3000); 
         }
 
-        new Promise(executor);
+        // Promise() 안에 resolve를 호출하면 동기동작을 우선 실행 후 resolve가 있는지 확인하구 then 실행 
+        // Promise().then() 사용시 resolve가 호출되었는지 확인 후 실행하라고 미뤄둠 (동기동작 우선실행 후 호출)
+        // resolve가 호출되지 않으면 then이 호출되지 않음
+        new Promise(executor).then(() => {
+            console.log(6);
+        });
+
+        console.log(3);
+
+        new Promise((resolve, reject) => {
+            console.log(4);
+            console.log(5);
+            resolve();
+            }).then(() => {
+                console.log(7)
+        });
+
+        new Promise((resolve, reject) => {
+            console.log("promise 생성");
+            setTimeout(() => {
+                const name = prompt("이름입력");
+                // 문자열이 "", undefind, null이면 false로 인식
+                if (!name) {
+                    reject("오류");
+                    return;
+                }
+                resolve(name);
+            }, 5000);
+            }).then((name) => {
+                console.log(8);
+                console.log(name);
+        }).catch((error) => {
+            console.log(error);
+        });
+
+
     </script>
 </body>
 </html>
