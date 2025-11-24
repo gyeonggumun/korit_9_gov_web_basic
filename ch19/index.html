@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="root">
+    <h1>제목</h1>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div class="box3"></div>
+    <div class="box3"></div>
+    <div class="box3"></div>
+    <div id="box4" class="box44"></div>
+    <div class="container">
+        <div class="user-info">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        //Dom Document Object Model
+        const d = document;
+        console.log(d); 
+        const body = document.body;
+        console.log(body);
+        const bodyId = body.id;
+        console.log(bodyId);
+
+        const h1 = body.getElementsByTagName("h1");
+        console.log(h1[0].innerText);
+        h1[0].innerText = "제목3";
+
+        const box1 = document.getElementById("box1");
+        console.log(box1);
+        box1.innerText = "박스1";
+
+        const box2 = document.getElementById("box2");
+        console.log(box2);
+        box2.innerHTML= `
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        `;
+        const box3 = document.getElementsByClassName("box3");
+        console.log(box3);
+        box3[0].style = `
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                `;
+
+        box3[1].style = `
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                `;
+
+        box3[2].style = `
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                `;
+
+        const box4 = document.querySelector("#box4");
+        <!-- const box44 = document.querySelector(".box44"); -->
+
+        const box44 = document.querySelectorAll(".box44");
+        const divs = document.querySelectorAll("div");
+
+        console.log(box4);
+        console.log(box44);
+        console.log(divs);
+
+        const userDiv = document.querySelector(".container > .user-info > div:nth-of-type(2)");
+        userDiv.innerText = "김준일";
+    </script>
+    
+</body>
+</html>
