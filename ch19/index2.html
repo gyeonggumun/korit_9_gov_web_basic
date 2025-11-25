@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(128, 42, 42);
+        }
+
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        .box6 {
+            width: 100px;
+            height: 100px;
+            background-color: #359478;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1" id="b1"></div>
+    <div class="box3" id="b1" onclick="console.log('box3 클릭!!')"></div>
+    <div class="box4" id="b1" onclick=""></div>
+    <div class="box5" onclick=""></div>
+    <div class="box6" onclick=""></div>
+    <div class="box7" onclick=""></div>
+
+    <script>
+        // 이벤트
+        const box1 = document.querySelector(".box1");
+        console.log(box1);
+        console.log(box1.id);
+        console.log(box1.onclick);
+
+        const box2 = {
+            id: "b2",
+            onclick: () => {},
+        }
+
+        box1.onclick = () => {
+            console.log("클릭!!!");
+        }
+
+        const box4 = document.querySelector(".box4");
+        let isRed = true;
+        box4.onclick = () => {
+            
+            box4.style=`background-color: ${isRed ? "red" : "blue"};`
+            isRed = !isRed;
+        }
+
+        const box5 = document.querySelector(".box5");
+        box5.backgroundColor1 = "red";
+        box5.backgroundColor2 = "blue";
+        box5.backgroundColor = box5.backgroundColor1;
+        console.log(box5.backgroundColor1);
+        console.log(box5.backgroundColor2);
+        box5.onclick = () => {
+            console.log(box5.backgroundColor);
+            box5.backgroundColor = box5.backgroundColor === box5.backgroundColor1 
+                                    ? box5.backgroundColor2 
+                                    : box5.backgroundColor1;
+            box5.style = `
+                background-color: ${box5.backgroundColor};
+            `;
+        }
+
+        let boxColor = {
+            box6: {
+                current: "red",
+                color1: "red",
+                color2: "blue",
+            },
+            box7: {
+                current: "red",
+                color1: "red",
+                color2: "blue",
+            }
+        }
+
+        const box6 = document.querySelector(".box6");
+        function changeBackgroundColor () {
+            box6.style = `
+                background-color: ${boxColor.box6.current};
+            `;
+        }
+        changeBackgroundColor();
+
+        box6.onclick = () => {
+            const { current, color1, color2 } = boxColor.box6;
+            boxColor.box6.current = current === color1 ? color2 : color1;
+            changeBackgroundColor();
+        }
+    </script>
+</body>
+</html>
