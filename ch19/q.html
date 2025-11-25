@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>나의 블로그</title>
+   <style>
+       /* 전체 초기화 */
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       
+       body {
+           font-family: Arial, sans-serif;
+       }
+       
+       /* Header 스타일 */
+       header {
+           background-color: #333;        /* 빈칸 ① */
+           color: white;                   /* 빈칸 ② */
+           padding: 20px 0;
+           text-align: center;              /* 빈칸 ③ */
+       }
+       
+       header h1 {
+           margin-bottom: 10px;
+       }
+       
+       nav ul {
+           list-style: none;
+           display: flex;
+           justify-content: center;
+           gap: 20px;
+       }
+       
+       nav a {
+           color: white;
+           text-decoration: none;
+       }
+       
+       /* Container 스타일 - Flexbox */
+       .container {
+           display: flex;                 /* 빈칸 ④ */
+           max-width: 1200px;
+           margin: 0 auto;
+       }
+       
+       /* Main 스타일 */
+       main {
+           flex: 3;                    /* 빈칸 ⑤ */
+           background-color: white;
+           padding: 20px;                 /* 빈칸 ⑥ */
+           min-height: 500px;
+       }
+       
+       main h2 {
+           color: #333;
+           margin-bottom: 15px;
+       }
+       
+       main p {
+           line-height: 1.6;
+           margin-bottom: 15px;
+       }
+       
+       /* Aside 스타일 */
+       aside {
+           flex: 1;                    /* 빈칸 ⑦ */
+           background-color: f4f4f4 ;        /* 빈칸 ⑧ */
+           padding: 20px;
+       }
+       
+       aside h3 {
+           color: #333;
+           margin-bottom: 10px;
+       }
+       
+       aside ul {
+           list-style: none;
+           padding-left: 10px;
+       }
+       
+       aside li {
+           margin-bottom: 5px;
+       }
+       
+       /* Footer 스타일 */
+       footer {
+           background-color: #333;
+           color: white;
+           text-align: center;              /* 빈칸 ⑨ */
+           padding: 10px;                 /* 빈칸 ⑩ */
+       }
+   </style>
+</head>
+<body>
+   <!-- Header 영역 -->
+   <header>
+       <h1>나의 개발 블로그</h1>
+       <nav>
+           <ul>
+               <li><a href="#">홈</a></li>
+               <li><a href="#">소개</a></li>
+               <li><a href="#">연락처</a></li>
+           </ul>
+       </nav>
+   </header>
+   
+   <!-- Main + Aside 컨테이너 -->
+   <div class="container">
+       <!-- Main 영역 -->
+       <main>
+           <article>
+               <h2>HTML과 CSS로 레이아웃 만들기</h2>
+               <p><small>작성일: 2024-01-20</small></p>
+               <p>
+                   HTML과 CSS는 웹 페이지를 만드는 기본 기술입니다. 
+                   HTML은 웹 페이지의 구조를 정의하고, CSS는 스타일을 꾸며줍니다.
+               </p>
+               <p>
+                   Flexbox는 CSS의 강력한 레이아웃 도구로, 
+                   복잡한 레이아웃을 쉽게 구현할 수 있게 해줍니다.
+               </p>
+               <p>
+                   이 블로그에서는 웹 개발의 기초부터 고급 기술까지 
+                   다양한 내용을 다룰 예정입니다.
+               </p>
+           </article>
+       </main>
+       
+       <!-- Aside 영역 -->
+       <aside>
+           <section>
+               <h3>프로필</h3>
+               <p>안녕하세요! 웹 개발을 공부하는 학생입니다.</p>
+           </section>
+           
+           <section>
+               <h3>최근 글</h3>
+               <ul>
+                   <li>Flexbox 완전 정복</li>
+                   <li>반응형 웹 디자인</li>
+                   <li>JavaScript 기초</li>
+               </ul>
+           </section>
+       </aside>
+   </div>
+   
+   <!-- Footer 영역 -->
+   <footer>
+       <p>&copy; 2024 나의 블로그. All rights reserved.</p>
+   </footer>
+</body>
+</html>
